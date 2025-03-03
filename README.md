@@ -1,20 +1,17 @@
-# Terraform Jenkins Deployment  
+# what is it?  
 
-This project automates the deployment of a **Jenkins Controller and Agent** on an AWS EC2 instance using **Terraform**.
+This repository contains Terraform configurations for provisioning DevOps infrastructure across multiple cloud providers, including AWS, DigitalOcean, and GCP. It follows a structured approach using separate subfolders per cloud provider for scalability and maintainability.
 
 ## project structure
 ```
-terraform-jenkins/    # Project root
-│── terraform/        # Terraform config directory
-│   ├── main.tf
-│   ├── variables.tf
-│   ├── outputs.tf
-│   ├── .terraform/   # Created after `terraform init`
-│   ├── terraform.tfstate  # Created after `terraform apply`
-│   ├── terraform.tfvars   # (optional)
-│
-├── .gitignore
-├── README.md
+terraform-devops-infra/
+  ├── aws-jenkins/        # AWS EC2 + Jenkins deployment
+  ├── aws-kubernetes/     # AWS EKS + Kubernetes deployment
+  ├── do-kubernetes/      # DigitalOcean Kubernetes setup (future)
+  ├── gcp-infra/          # GCP infrastructure setup (future)
+  ├── modules/            # Reusable Terraform modules (optional)
+  ├── .gitignore
+  ├── README.md
 ```
 
 ## 🔹 Features  
