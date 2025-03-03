@@ -56,13 +56,20 @@ resource "aws_instance" "jenkins_server" {
       "sudo apt install -y docker.io",
       "sudo systemctl start docker",
       "sudo systemctl enable docker",
+      "sudo usermod -aG docker $USER",
 
       # Run Jenkins Controller
       "sudo docker run -d --name jenkins-controller --restart always -u root -p 8080:8080 -p 50000:50000 -v $HOME/jenkins_home:/var/jenkins_home jenkins/jenkins:lts",
-       
+      
+      # Wait for Jenkins to initialize
+      "sleep 60",
 
-      # Run Jenkins Agent
-      #"sudo docker run -d --name jenkins-agent jenkins/ssh-agent"
+      # output jenkins initial admin secret
+      "sudo docker exec jenkins-controller cat /var/jenkins_home/secrets/initialAdminPassword",
+
+
+      # manually deploy docker agent node
+      
     ]
   }
 
