@@ -65,7 +65,9 @@ resource "aws_instance" "jenkins_server" {
       "sleep 60",
 
       # output jenkins initial admin secret
+      "echo '###### JENKINS INITIAL ADMIN PASSWORD ######'",
       "sudo docker exec jenkins-controller cat /var/jenkins_home/secrets/initialAdminPassword",
+      "echo '############################################'",
 
 
       # manually deploy docker agent node
