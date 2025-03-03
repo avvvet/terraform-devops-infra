@@ -32,4 +32,15 @@ terraform-jenkins/    # Project root
 ### Clone the Repository 
 ```bash
 git clone https://github.com/avvvet/terraform-jenkins.git
-cd terraform-jenkins
+cd terraform-jenkins/terraform
+```
+
+### Deploy 
+```bash
+terraform apply 
+```
+
+### remove infrastructure
+```bash
+terraform distroy 
+```
